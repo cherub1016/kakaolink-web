@@ -7,7 +7,7 @@
     if (uagent.search("android") > -1) {
         kakao.os = "android";
         kakao.install = "market://details?id=com.kakao.talk";
-    } else if (uagent.search("iphone") > -1) {
+    } else if (uagent.search("iphone") > -1 || uagent.search("ipod") > -1 || uagent.search("ipad") > -1) {
         kakao.os = "ios";
         kakao.install = "http://itunes.apple.com/app/id362057947";
     }
