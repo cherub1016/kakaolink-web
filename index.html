@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1,minimum-scale=1, maximum-scale=1">
+    <script type="text/javascript" src="./kakao.link.js"></script>
+<script type="text/javascript">
+function executeURLLink()
+{
+    kakao.link({
+        msg : "카카오링크를 사용하여 메세지를 전달해보세요.;",
+        url : "http://link.kakao.com",
+        appid : "m.kakao.com",
+        appver : "2.0",
+        appname : "카카오",
+    });
+}
+
+function executeAPPLink()
+{
+    kakao.link({
+        msg : "카카오링크를 사용하여 메세지를 전달해보세요.;",
+        url : "http://link.kakao.com",
+        appid : "m.kakao.com",
+        appver : "2.0",
+        appname : "카카오",
+        metainfo : JSON.stringify({metainfo : [ {os:"android", devicetype: "phone",installurl:"market://details?id=com.kakao.talk", executeurl : "kakaoagit://testtest"},{os:"ios", devicetype:"pad",installurl:"items://itunes.apple.com/us/app/kakaotalk/id362057947?mt=8",executeurl : "kakaoagit://testtest"}]})
+    });
+}
+
+</script>
+<style>
+body {
+    background-color: #F7F7F0;
+    text-align: center;
+}
+div {
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFB1F), to(#EBE70C));
+    border-radius: 10px;
+    width:320px;
+    height:40px;
+    box-shadow: rgba(0, 0, 0, 0.496094) 0px 1px 1px 0px, rgba(0, 0, 0, 0.0976563) 0px -1px 0px 0px;
+    border:0px;
+    font-size:1.25em;
+    text-align: center;
+    line-height: 40px;
+    margin:0px auto;
+}
+img { 
+    border-radius: 5px;
+    margin:0px auto;
+}
+</style>
+</head>
+<body>
+    <img src="./kakao.png"/>
+    <br/><br/>
+    <div onclick="javascript:executeURLLink()">URL 전달</div>
+    <br/>
+    <div onclick="javascript:executeAPPLink()">APP Link 전달</div>
+</body>
+
+</html>
