@@ -7,24 +7,38 @@
 <script type="text/javascript">
 function executeURLLink()
 {
-    kakao.link({
+    kakao.link("talk").send({
         msg : "카카오링크를 사용하여 메세지를 전달해보세요.;",
         url : "http://link.kakao.com",
         appid : "m.kakao.com",
         appver : "2.0",
         appname : "카카오",
+        type : "link"
     });
+
 }
 
 function executeAPPLink()
 {
-    kakao.link({
+    kakao.link("talk").send({
         msg : "카카오링크를 사용하여 메세지를 전달해보세요.;",
         url : "http://link.kakao.com",
         appid : "m.kakao.com",
         appver : "2.0",
         appname : "카카오",
-        metainfo : JSON.stringify({metainfo : [ {os:"android", devicetype: "phone",installurl:"market://details?id=com.kakao.talk", executeurl : "kakaoagit://testtest"},{os:"ios", devicetype:"pad",installurl:"items://itunes.apple.com/us/app/kakaotalk/id362057947?mt=8",executeurl : "kakaoagit://testtest"}]})
+        metainfo : JSON.stringify({metainfo : [ {os:"android", devicetype: "phone",installurl:"market://details?id=com.kakao.talk", executeurl : "kakaoagit://testtest"},{os:"ios", devicetype:"pad",installurl:"items://itunes.apple.com/us/app/kakaotalk/id362057947?mt=8",executeurl : "kakaoagit://testtest"}]}),
+        type : "app"
+    });
+}
+
+function executeKakaoStoryLink()
+{
+    kakao.link("story").send({
+        post : "카카오스토리를 사용하여 포스팅을 해보세요.",
+        appid : "m.kakao.com",
+        appver : "1.0",
+        appname : "카카오",
+        urlinfo : ""
     });
 }
 
@@ -53,11 +67,19 @@ img {
 </style>
 </head>
 <body>
-    <img src="./kakao.png"/>
+    <img src="./kakaotalk.png"/>
     <br/><br/>
-    <div onclick="javascript:executeURLLink()">URL 전달</div>
+    <div onclick="javascript:executeURLLink()">카카오톡 URL 전달</div>
     <br/>
-    <div onclick="javascript:executeAPPLink()">APP Link 전달</div>
+    <div onclick="javascript:executeAPPLink()">카카오톡 APP Link 전달</div>
+
+    <br/><br/>
+
+    <img src="./kakaostory.png"/>
+    <br/><br/>
+    <div onclick="javascript:executeKakaoStoryLink()">카카오스토리 링크</div>
+    <br/>
+    
 </body>
 
 </html>
