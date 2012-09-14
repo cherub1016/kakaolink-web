@@ -42,9 +42,12 @@ Copyright 2012 KAKAO
                 params['apiver'] = _app.apiver;
                 var full_url = _app.base_url + serialized(params);
 
-                var install_block = function () {
-                        window.location = _app.store[kakao.os];
+                var install_block = (function (os){
+                    return function () {
+                        window.location = _app.store[os];
                     };
+                })(this.os);
+                
                 if (this.os == "ios") {
                     setTimeout(install_block, 25);
                     window.location = full_url;
@@ -57,6 +60,7 @@ Copyright 2012 KAKAO
                 }
             },
             app : link_app,
+            os : kakao.os
         };
 
         function serialized(params) {
